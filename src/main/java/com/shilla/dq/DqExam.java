@@ -51,6 +51,10 @@ public class DqExam extends AbstractJob {
     }
 
     public static void main(String[] args) throws Exception {
+
+
+
+
         new DqExam().run(args);
     }
 
