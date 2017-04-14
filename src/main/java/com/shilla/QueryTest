@@ -1,0 +1,27 @@
+package net.hotelshilla.dq.dbtest;
+
+import javax.sql.DataSource;
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+
+public class QueryTest extends PersistentRepositoryImpl {
+
+    public static final String NAMESPACE = QueryTest.class.getName();
+
+    public QueryTest(SqlSessionTemplate template) {
+        super.setSqlSessionTemplate(template);
+
+    }
+
+    public String getNamespace() {
+        return this.NAMESPACE;
+    }
+
+    public List<Map> select() {
+        System.out.println(this.getNamespace() + ".select");
+        return this.getSqlSessionTemplate().selectList(this.getNamespace() + ".select");
+    }
+
+}
